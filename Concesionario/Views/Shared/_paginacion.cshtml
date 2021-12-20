@@ -1,0 +1,34 @@
+﻿@model Paginacion
+
+@{
+    
+    int cantidadPaginas = (int)Math.Ceiling((double)Model.TotalDeRegistros / Model.RegistrosPorPagina);
+}
+<ul class="pagination">
+    @if (Model.PaginaActual ==1)
+    {
+   <li class ="disabled" hidden> 
+       @Html.ActionLink("Anterior",null,new {paginaActual=1})
+   </li>
+}else
+{
+   <li >
+       @Html.ActionLink("Anterior",null,new {paginaActual=Model.PaginaActual-1})
+       </li>
+}
+<li>
+    -
+</li>
+ @if (Model.PaginaActual ==cantidadPaginas)
+    {
+   <li class ="disabled "hidden>
+       @Html.ActionLink("Siguiente",null,new  {paginaActual=cantidadPaginas})
+       </li>
+}else
+{
+   <li >
+       @Html.ActionLink("Siguiente",null,new {paginaActual=Model.PaginaActual+1})
+       </li>
+}
+
+</ul>

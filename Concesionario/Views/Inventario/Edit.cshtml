@@ -1,0 +1,27 @@
+﻿@using WebApp.Models
+@model Inventario
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar el Inventario</h1>
+<form method="post" asp-action="Edit">
+
+    <input asp-for="Id" type= "hidden"/>
+    <br/>
+    <label>Marca</label>
+    <input asp-for="Marca"/>
+    <label>Unidades</label>
+    <input asp-for="Unidades"/>
+    <label>Modelo</label>
+    <input asp-for="Modelo"/>
+    <label>Color</label>
+    <input asp-for="Color"/>
+    <label>Estado</label>
+    <input asp-for="Estado"/>
+    <label>Precio por Unidad</label>
+    <input asp-for="Precio_por_unidad"/>
+
+    <input type="submit" value="Grabar"/>
+</form>

@@ -1,0 +1,33 @@
+﻿@using WebApp.Models
+@model TablaAmortizacion 
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Confirmacion del Borrado</h1>
+<form method="post" asp-action="Delete">
+
+      <input asp-for="Id" type= "hidden"/>
+    <br/>
+    <label>Cliente</label>
+    <input asp-for="Cliente"/>
+    <label>TNA30 360</label>
+    <input asp-for="TNA30_360"/>
+    <label>Años</label>
+    <input asp-for="Años"/>
+    <label>Valor Prestamo</label>
+    <input asp-for="ValorPrestamo"/>
+    <label>Frecuencia</label>
+    <input asp-for="Frecuencia"/>
+    <label>Interes Equivalente</label>
+    <input asp-for="InteresEquivalente"/>
+    <label>Numero Pagos</label>
+    <input asp-for="Numeropagos"/>
+    <label>Numero Cuotas</label>
+    <input asp-for="NumeroCuotas"/>
+   
+
+    <input type="submit" value="Eliminar"/>
+</form>
+

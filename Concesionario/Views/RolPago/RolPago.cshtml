@@ -1,0 +1,68 @@
+﻿@using WebApp.Models
+@model Paginacion
+
+@{
+    ViewData["Title"] = "RolPago";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<div class="row">
+    <div class="col-sn-6"> 
+<h1>RolPago</h1>
+</div>
+  
+<div class="col-sn-6"> 
+    
+    <a class="btn btn-success d-block"
+<a asp-controller="RolPago" asp-action="Create">Ingresar Cliente</a>
+<br />
+ <a asp-controller="RolPago" a/>
+    <br/>
+    </div>
+    </div>
+    @using (Html.BeginForm(FormMethod.Get))
+{
+    <label>Cliente</label>
+    <input type="text" name="cliente" id="Cliente"/>
+    <input type="submit" value="Filtrar" class="btn-primary btn-success"/>
+}
+<br />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Cliente</th>
+        <th>Cargo</th>
+        <th>Sueldo</th>
+        <th>Sueldo</th>
+        <th>Horas extra</th>
+        <th>Comision</th>
+        <th>Aporte IEES</th>
+        <th>Anticipos</th>
+        <th>Total</th>
+    </tr>
+@foreach( RolPago rolPago in Model.entidades)
+    {
+    <tr>
+        <td>@rolPago.Id</td>
+        <td>@rolPago.Cliente</td>
+        <td>@rolPago.Cargo</td>
+        <td>@rolPago.Sueldo</td>
+        <td>@rolPago.Horas_extra</td>
+        <td>@rolPago.Comision</td>
+        <td>@rolPago.AporteIEES</td>
+        <td>@rolPago.Anticipos</td>
+        <td>@rolPago.Total</td>
+         <td>
+        <a asp-controller="RolPago" asp-action="Edit" asp-route-id="@rolPago.Id">Editar</a>
+               
+        </td>
+       <td>
+              <a asp-controller="RolPago" asp-action="Delete" asp-route-id="@rolPago.Id">Eliminar</a>  
+        </td>
+    
+    </tr>
+}
+</table>
+@{
+    Html.RenderPartial("_paginacion", Model);
+}

@@ -1,0 +1,62 @@
+﻿@using WebApp.Models
+@model Paginacion
+
+@{
+    ViewData["Title"] = "Distribuidora";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ 
+}
+<div class="row">
+    <div class="col-sn-6"> 
+<h1>Distribuidora</h1>
+</div>
+  
+<div class="col-sn-6"> 
+    
+    <a class="btn btn-success d-block"
+<a asp-controller="Distribuidora" asp-action="Create">Adquirir Automovil</a>
+<br />
+    <a asp-controller="Distribuidora" a/>
+    <br/>
+    </div>
+    </div>
+    @using (Html.BeginForm(FormMethod.Get))
+{
+    <label>Distribuidor</label>
+    <input type="text" name="distribuidor" id="Distribuidor"/>
+    <input type="submit" value="Filtrar" class="btn-primary btn-success"/>
+}
+<br />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Distribuidor</th>
+        <th>Modelo</th>
+        <th>Unidades</th>
+        <th>Motivo</th>
+        <th>Precio Total</th>
+    </tr>
+@foreach(Distribuidora distribuidora in Model.entidades)
+    {
+    <tr>
+        <td>@distribuidora.Id</td>
+        <td>@distribuidora.Distribuidor</td>
+        <td>@distribuidora.Modelo</td>
+        <td>@distribuidora.Unidades</td>
+        <td>@distribuidora.Motivo</td>
+        <td>@distribuidora.Precio_Total</td>
+         <td>
+        <a asp-controller="Distribuidora" asp-action="Edit" asp-route-id="@distribuidora.Id">Editar</a>
+               
+        </td>
+       <td>
+              <a asp-controller="Distribuidora" asp-action="Delete" asp-route-id="@distribuidora.Id">Eliminar</a>  
+        </td>
+       
+    
+    </tr>
+}
+</table>
+@{
+    Html.RenderPartial("_paginacion", Model);
+}

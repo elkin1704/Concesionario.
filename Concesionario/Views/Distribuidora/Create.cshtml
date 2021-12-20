@@ -1,0 +1,30 @@
+﻿@using WebApp.Models
+@model Distribuidora
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ingrese el automovil que necesita</h1>
+<form method= "post" asp-action="Create">
+<label>Distribuidor</label>
+    <input asp-for="Distribuidor"/>
+    <br/>
+    <label>Modelo</label>
+    <input asp-for="Modelo"/>
+    <br/>
+    <label>Unidades</label>
+    <input asp-for="Unidades"/>
+    <br/>
+    <label>Motivo</label>
+    <input asp-for="Motivo"/>
+    <br/>
+    <label>Precio Total</label>
+    <input asp-for="Precio_Total"/>
+    <br/>
+    
+    <input type="submit" value="Crear"/>
+</form>
+
+
+

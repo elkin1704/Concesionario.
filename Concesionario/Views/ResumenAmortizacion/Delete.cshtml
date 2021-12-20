@@ -1,0 +1,27 @@
+﻿@using WebApp.Models
+@model ResumenAmortizacion 
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Confirmacion del Borrado</h1>
+<form method="post" asp-action="Delete">
+
+    <input asp-for="Id" type= "hidden"/>
+    <br/>
+    <label>Cliente</label>
+    <input asp-for="Cliente"/>
+    <label>Valor Prestamo</label>
+    <input asp-for="ValorPrestamo"/>
+    <label>Suma Cuotas</label>
+    <input asp-for="SumaCuotas"/>
+    <label>Suma Interes</label>
+    <input asp-for="SumaInteres"/>
+    <label>Prestamo</label>
+    <input asp-for="Prestamo"/>
+   
+
+    <input type="submit" value="Eliminar"/>
+</form>
+

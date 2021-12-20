@@ -1,0 +1,69 @@
+﻿@using WebApp.Models
+
+@model Paginacion
+@{
+    ViewData["Title"] = "TablaAmortizacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<div class="row">
+    <div class="col-sn-6"> 
+<h1>TablaAmortizacion</h1>
+</div>
+  
+<div class="col-sn-6"> 
+    
+    <a class="btn btn-success d-block"
+<a asp-controller="TablaAmortizacion" asp-action="Create">Ingresar nuevos Datos</a>
+<br />
+<a asp-controller="TablaAmortizacion" a/>
+    <br/>
+    </div>
+    </div>
+
+     @using (Html.BeginForm(FormMethod.Get))
+{
+    <label>Cliente</label>
+    <input type="text" name="cliente" id="Cliente"/>
+    <input type="submit" value="Filtrar" class="btn-primary btn-success"/>
+}
+<br />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Cliente</th>
+        <th>TNA30_360</th>
+        <th>Años</th>
+        <th>ValorPrestamo</th>
+        <th>Frecuencia</th>
+        <th>Interes Equivalente</th>
+        <th>Numero Pagos</th>
+        <th>Numero Cuotas</th>
+    </tr>
+@foreach( TablaAmortizacion tablaAmortizacion in Model.entidades)
+    {
+    <tr>
+        <td>@tablaAmortizacion.Id</td>
+        <td>@tablaAmortizacion.Cliente</td>
+        <td>@tablaAmortizacion.TNA30_360</td>
+        <td>@tablaAmortizacion.Años</td>
+        <td>@tablaAmortizacion.ValorPrestamo</td>
+        <td>@tablaAmortizacion.Frecuencia</td>
+        <td>@tablaAmortizacion.InteresEquivalente</td>
+        <td>@tablaAmortizacion.Numeropagos</td>
+        <td>@tablaAmortizacion.NumeroCuotas</td>
+        
+        <td>
+        <a asp-controller="TablaAmortizacion" asp-action="Edit" asp-route-id="@tablaAmortizacion.Id">Editar</a>
+               
+        </td>
+         <td>
+              <a asp-controller="TablaAmortizacion" asp-action="Delete" asp-route-id="@tablaAmortizacion.Id">Eliminar</a>  
+        </td>
+    
+    </tr>
+}
+</table>
+@{
+    Html.RenderPartial("_paginacion", Model);
+}

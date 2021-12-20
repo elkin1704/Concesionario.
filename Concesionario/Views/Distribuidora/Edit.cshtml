@@ -1,0 +1,28 @@
+﻿@using WebApp.Models
+@model Distribuidora 
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editor del distribuidor</h1>
+<form method="post" asp-action="Edit">
+
+    <input asp-for="Id" type= "hidden"/>
+    <br/>
+    <label>Distribuidor</label>
+    <input asp-for="Distribuidor"/>
+    <label>Modelo</label>
+    <input asp-for="Modelo"/>
+    <label>Unidades</label>
+    <input asp-for="Unidades"/>
+    <label>Motivo</label>
+    <input asp-for="Motivo"/>
+    <label>Precio Total</label>
+    <input asp-for="Precio_Total"/>
+   
+
+    <input type="submit" value="Grabar"/>
+</form>
+
+

@@ -1,0 +1,67 @@
+﻿@using WebApp.Models
+@model Paginacion
+@{
+    ViewData["Title"] = "Inventario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<div class="row">
+    <div class="col-sn-6"> 
+<h1>Inventario</h1>
+</div>
+  
+<div class="col-sn-6"> 
+    
+    <a class="btn btn-success d-block"
+<a asp-controller="Inventario" asp-action="Create">Nuevo Modelo</a>
+<br />
+    <a asp-controller="Inventario" a/>
+    <br/>
+    </div>
+    </div>
+
+@using (Html.BeginForm(FormMethod.Get))
+{
+    <label>Marca</label>
+    <input type="text" name="marca" id="Marca"/>
+    <input type="submit" value="Filtrar" class="btn-primary btn-success"/>
+}
+<br />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Marca</th>
+        <th>Unidades</th>
+        <th>Modelo</th>
+        <th>Color</th>
+        <th>Estado</th>
+        <th>Precio por Unidad</th>
+    </tr>
+@foreach(Inventario inventario in Model.entidades)
+    {
+    <tr>
+        <td>@inventario.Id</td>
+        <td>@inventario.Marca</td>
+        <td>@inventario.Unidades</td>
+        <td>@inventario.Modelo</td>
+        <td>@inventario.Color</td>
+        <td>@inventario.Estado</td>
+        <td>@inventario.Precio_por_unidad</td>
+        <td>
+        <a asp-controller="Inventario" asp-action="Edit" asp-route-id="@inventario.Id">Editar</a>
+        
+             
+        </td>
+
+         <td>
+              <a asp-controller="Inventario" asp-action="Delete" asp-route-id="@inventario.Id">Eliminar</a>  
+        </td>
+       
+    
+    </tr>
+}
+</table>
+
+@{
+    Html.RenderPartial("_paginacion", Model);
+}

@@ -1,0 +1,37 @@
+﻿@using WebApp.Models
+@model RolPago
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ingrese el Cliente</h1>
+
+<form method= "post" asp-action="Create">
+<label>Cliente</label>
+    <input asp-for="Cliente"/>
+    <br/>
+    <label>Cargo</label>
+    <input asp-for="Cargo"/>
+    <br/>
+    <label>Sueldo</label>
+    <input asp-for="Sueldo"/>
+    <br/>
+    <label>Horas extra</label>
+    <input asp-for="Horas_extra"/>
+    <br/>
+    <label>Comision</label>
+    <input asp-for="Comision"/>
+    <br/>
+     <label>Aporte IEES</label>
+    <input asp-for="AporteIEES"/>
+    <br/>
+     <label>Anticipos</label>
+    <input asp-for="Anticipos"/>
+    <br/>
+     <label>Total</label>
+    <input asp-for="Total"/>
+    <br/>
+    
+    <input type="submit" value="Crear"/>
+</form>

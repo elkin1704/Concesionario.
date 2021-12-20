@@ -1,0 +1,27 @@
+﻿@using WebApp.Models
+@model ResumenAmortizacion 
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editar Resumen</h1>
+<form method="post" asp-action="Edit">
+
+    <input asp-for="Id" type= "hidden"/>
+    <br/>
+    <label>Cliente</label>
+    <input asp-for="Cliente"/>
+    <label>Valor Prestamo</label>
+    <input asp-for="ValorPrestamo"/>
+    <label>Suma Cuotas</label>
+    <input asp-for="SumaCuotas"/>
+    <label>Suma Interes</label>
+    <input asp-for="SumaInteres"/>
+    <label>Prestamo</label>
+    <input asp-for="Prestamo"/>
+    
+   
+
+    <input type="submit" value="Grabar"/>
+</form>

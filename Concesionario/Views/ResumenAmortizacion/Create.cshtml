@@ -1,0 +1,30 @@
+﻿@using WebApp.Models
+@model ResumenAmortizacion
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Nuevo Resumen</h1>
+
+<form method= "post" asp-action="Create">
+<label>Cliente</label>
+    <input asp-for="Cliente"/>
+    <br/>
+    <label>Valor Prestamo</label>
+    <input asp-for="ValorPrestamo"/>
+    <br/>
+    <label>Suma Cuotas</label>
+    <input asp-for="SumaCuotas"/>
+    <br/>
+    <label>Suma Interes</label>
+    <input asp-for="SumaInteres"/>
+    <br/>
+    <label>Prestamo</label>
+    <input asp-for="Prestamo"/>
+    <br/>
+    
+    
+    <input type="submit" value="Crear"/>
+</form>
+

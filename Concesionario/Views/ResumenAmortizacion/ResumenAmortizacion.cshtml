@@ -1,0 +1,62 @@
+﻿@using WebApp.Models
+@model Paginacion
+@{
+    ViewData["Title"] = "ResumenAmortizacion";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    
+}
+<div class="row">
+    <div class="col-sn-6"> 
+<h1>ResumenAmortizacion</h1>
+</div>
+  
+<div class="col-sn-6"> 
+    
+    <a class="btn btn-success d-block"
+<a asp-controller="ResumenAmortizacion" asp-action="Create">Nuevo Resumen</a>
+<br />
+<a asp-controller="ResumenAmortizacion" a/>
+    <br/>
+    </div>
+    </div>
+
+     @using (Html.BeginForm(FormMethod.Get))
+{
+    <label>Cliente</label>
+    <input type="text" name="cliente" id="Cliente"/>
+    <input type="submit" value="Filtrar" class="btn-primary btn-success"/>
+}
+<br />
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Cliente</th>
+        <th>ValorPrestamo</th>
+        <th>Suma Cuotas</th>
+        <th>Suma Interes</th>
+        <th>Prestamo</th>
+        
+    </tr>
+@foreach( ResumenAmortizacion  resumenAmortizacion in Model.entidades)
+    {
+    <tr>
+        <td>@resumenAmortizacion.Id</td>
+        <td>@resumenAmortizacion.Cliente</td>
+        <td>@resumenAmortizacion.ValorPrestamo</td>
+        <td>@resumenAmortizacion.SumaCuotas</td>
+        <td>@resumenAmortizacion.SumaInteres</td>
+        <td>@resumenAmortizacion.Prestamo</td>
+       
+        <td>
+        <a asp-controller="ResumenAmortizacion" asp-action="Edit" asp-route-id="@resumenAmortizacion.Id">Editar</a>
+               
+        </td>
+        <td>
+              <a asp-controller="ResumenAmortizacion" asp-action="Delete" asp-route-id="@resumenAmortizacion.Id">Eliminar</a>  
+        </td>
+    </tr>
+}
+</table>
+@{
+    Html.RenderPartial("_paginacion", Model);
+}

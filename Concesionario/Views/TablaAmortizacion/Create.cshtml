@@ -1,0 +1,37 @@
+﻿@using WebApp.Models
+@model TablaAmortizacion
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Ingrese nuevos Datos</h1>
+<form method= "post" asp-action="Create">
+<label>Cliente</label>
+    <input asp-for="Cliente"/>
+    <br/>
+    <label>TNA30 360</label>
+    <input asp-for="TNA30_360"/>
+    <br/>
+    <label>Años</label>
+    <input asp-for="Años"/>
+    <br/>
+    <label>Valor Prestamo</label>
+    <input asp-for="ValorPrestamo"/>
+    <br/>
+    <label>Frecuencia</label>
+    <input asp-for="Frecuencia"/>
+    <br/>
+     <label>Interes Equivalente</label>
+    <input asp-for="InteresEquivalente"/>
+    <br/>
+     <label>Numero Pagos</label>
+    <input asp-for="Numeropagos"/>
+    <br/>
+     <label>Numero Cuotas</label>
+    <input asp-for="NumeroCuotas"/>
+    <br/>
+    
+    <input type="submit" value="Crear"/>
+</form>
+
